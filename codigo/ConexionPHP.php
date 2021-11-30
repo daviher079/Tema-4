@@ -38,6 +38,7 @@
 
  /*       $sql="select * from alumno";
 
+        //STORE COGE TODOS LOS DATOS DE LA BASE DE DATOS Y USE ACCEDE A LOS DATOS CUANDO HACE EL FETCH PERO ACCEDE SOLO A UN DATO
         $resultado = mysqli_query($conexion, $sql, MYSQLI_STORE_RESULT);
         
 
@@ -146,7 +147,7 @@
 
 
     //VOY A BORRAR UNA FILA Y LUEGO NO GUARDAR LOS CAMBIOS
-    $miConexion= new mysqli();
+    /*$miConexion= new mysqli();
     @$miConexion->connect(IP, USER, PASS, BBDD);
 
     if($miConexion->connect_errno!=0)
@@ -169,6 +170,32 @@
         $miConexion->commit();
         echo "Todo ha ido bien";
         $stmt->free_result();
+        $miConexion->close();
+    }*/
+
+
+
+    $miConexion= new mysqli();
+    @$miConexion->connect(IP, USER, PASS);
+
+    if($miConexion->connect_errno!=0)
+    {
+        echo "Error". $miConexion->connect_error;
+        exit;
+    }else
+    {
+        $comandosSQL = file_get_contents("../segura/Script.sql");
+
+        $miConexion->multi_query($comandosSQL);
+        if($miConexion->errno!=0)
+        {
+            echo $miConexion->error;
+        }else
+        {
+            echo"Todo ha ido bien";
+
+        }
+
         $miConexion->close();
     }
 
