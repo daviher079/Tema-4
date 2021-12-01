@@ -4,6 +4,6 @@
     //define("IP", '192.168.1.149');
     define("USER", 'david');
     define("PASS", "david");
-    define("BBDD", "alumnos");
+    define("BBDD", "LIGA");
 ?>
 
