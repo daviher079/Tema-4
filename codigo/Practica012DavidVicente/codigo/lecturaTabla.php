@@ -19,35 +19,7 @@
         <div class="content">
             <div class="title">
                 <h1>DWES</h1>
-                <?php
-                    require_once("./codigo/funcionesBD.php");
-
-                    //sizeof es igual que la funcion count
-                    if(sizeof($_REQUEST)>0)
-                    {
-                        
-                        if($_REQUEST['crear']=='CrearBD')
-                        {
-                            crearBD();
-                        }
-
-                        if($_REQUEST['lectura']=='LeerTabla')
-                            header('Location: ./codigo/lecturaTabla.php?');    
-
-                       
-    
-                    }
-                ?>
-                <form action="index.php" method="post" name="formulario" enctype="multipart/form-data">
-                    <?php
-                       
-                       compruebaErrores();
-                        
-                    ?>    
-                    
-                    <input type="button" value="LeerTabla" name="lectura">
-                    <input type="button" value="InsertarRegistro" name="insertar">
-                </form>
+                
 
                
             </div>
