@@ -20,6 +20,10 @@
             <div class="title">
                 <h1>DWES</h1>
                 
+                <?php
+                    require_once("./codigo/funcionesBD.php");
+                    lectura()
+                ?>
 
                
             </div>
