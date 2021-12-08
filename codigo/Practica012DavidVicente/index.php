@@ -4,14 +4,14 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!--<link rel="stylesheet" href="../../web-root/css/resetCSS.css"/>
-    <link rel="stylesheet" href="../../web-root/css/style.css"/>
-    <link rel="stylesheet" href="../../web-root/css/styleTarea8.css"/>-->
+    <link rel="stylesheet" href="./web-root/css/resetCSS.css"/>
+    <link rel="stylesheet" href="./web-root/css/style.css"/>
+
     <title>CRUD</title>
 </head>
 <body>
     <header>
-        <!--<img class="logo" src="../../../web-rootIndexPrincipal/img/LogotipoDavidVicente.png"/>-->
+        <img class="logo" src="./web-root/img/LogotipoDavidVicente.png"/>
         <h1>CRUD</h1>
     </header>
     <main>
@@ -21,17 +21,22 @@
                 <h1>DWES</h1>
                 <?php
                     require_once("./codigo/funcionesBD.php");
-                    
-                    if(sizeof($_REQUEST)>0)
+                    if(sizeof($_REQUEST)>0 && (isset($_REQUEST['crear']) || isset($_REQUEST['lectura']) || isset($_REQUEST['insertar'])))
                     {
+                        
                         if($_REQUEST['crear']=='CrearBD')
                         {
                             crearBD();
                         }
 
-                        if($_REQUEST['lectura']=='LeerTabla')
+                        if(isset($_REQUEST['lectura']) && $_REQUEST['lectura']=='LeerTabla')
                         {
                             header('Location: ./lecturaTabla.php');
+                        }
+
+                        if(isset($_REQUEST['insertar']) && $_REQUEST['insertar']=='InsertarRegistro')
+                        {
+                            header('Location: ./insertarRegistro.php');
                         }
                         
                     }
@@ -39,11 +44,21 @@
                 <form action="./index.php" method="post" name="formulario">
                     
                     <?php
-                       compruebaErrores();  
+                        //BUSCADOR // select * from clientes where nombre like '%me%';
+                        $conexion = new mysqli();
+                        @$conexion->connect(IP, USER, PASS, BBDD);
+
+                        if ($conexion->connect_errno == 0) 
+                        {
+                            echo "<input type='submit' name='lectura' value='LeerTabla'>";
+                            echo "<input type='submit' name='insertar' value='InsertarRegistro'>";
+                        }else
+                        {
+                            compruebaErrores();
+
+                        }  
                     ?>    
                     
-                    <input type="submit" value="LeerTabla" name="lectura">
-                    <input type="submit" value="InsertarRegistro" name="insertar">
                 </form>
 
             </div>
@@ -51,17 +66,17 @@
         
         
 
-        
+    
            
         
 
     </main>
-    <!--<footer>
+    <footer>
         <p>Footer de David</p>
-        <a href="codigoTarea011.php?ficheroPHP=<?php
+        <a href="./verCodigo.php?ficheroPHP=<?php
             $pagina=basename($_SERVER['SCRIPT_FILENAME']);
             echo $pagina;
-        ?>"><img src="../../../web-rootIndexPrincipal/img/gafas-de-sol.png" height="100px"></a>
-    </footer>-->
+        ?>"><img src="./web-root/img/gafas-de-sol.png" height="100px"></a>
+    </footer>
 </body>
 </html>
