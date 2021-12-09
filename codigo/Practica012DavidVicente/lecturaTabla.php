@@ -47,7 +47,7 @@
 
                         filtrado($_REQUEST['buscador']);
                         
-                        echo "<a href='./lecturaTabla.php'>Volver</a>";
+                        
                     }
                     
                 }else

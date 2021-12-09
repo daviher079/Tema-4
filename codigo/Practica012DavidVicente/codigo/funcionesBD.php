@@ -162,14 +162,17 @@ function filtrado($cadena)
 
         $preparado=$conexion->stmt_init();
         //$​sql​ = ​"select * from PRODUCTOS where NOMBRE LIKE '"​. ​$​nombreBuscar​ . ​"%';"​ ; 
-        $sql="select * from DATOSCLUB where NOMBRE LIKE '%?%'";
+        $sql="select * from DATOSCLUB where NOMBRE LIKE ?";
+
+        $cadena = "%".$cadena."%";
         //BUSCADOR // select * from clientes where nombre like '%me%';
+        // "You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '?'%'' at line 1"
         $preparado->prepare($sql);
         $preparado->bind_param('s',$cadena);
 
         $preparado->execute();
 
-        $preparado->bind_result($rid, $rpuntos, $rnombre, $mediaGoles, $fecha);
+        $prueba = $preparado->bind_result($rid, $rpuntos, $rnombre, $mediaGoles, $fecha);
         
         echo "<table>";
         echo"<thead>";
