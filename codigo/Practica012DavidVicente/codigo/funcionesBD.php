@@ -27,6 +27,7 @@ function crearBD()
     else 
     {
         $crearBD = file_get_contents("./segura/script.sql");
+        //pdo-multiquery buscar Puede ser la funcion exec()
         $conexion->multi_query($crearBD);
 
         if ($conexion->errno != 0)
