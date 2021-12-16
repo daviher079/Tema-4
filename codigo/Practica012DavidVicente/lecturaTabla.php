@@ -55,7 +55,7 @@
                     lectura();
                 }
                 ?>
-                    <a href="./index.php" ><img src="./web-root/img/volver.png" height="30px" style="margin-top:30px"></a>
+                    
                 </form>
                
             </div>
@@ -75,6 +75,7 @@
             $pagina=basename($_SERVER['SCRIPT_FILENAME']);
             echo $pagina;
         ?>"><img src="./web-root/img/gafas-de-sol.png" height="100px"></a>
+        <a href="./index.php" ><img src="./web-root/img/volver.png" height="20px" style="margin-top:30px"></a>
     </footer>
 </body>
 </html>

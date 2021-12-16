@@ -113,7 +113,7 @@
                     <input type="submit" value="Enviar los Datos" name="enviado">
 
                     <input type="reset" value="Limpiar">
-                    <a href="./lecturaTabla.php"><img src="./web-root/img/volver.png" height="30px"></a>
+                    
                 </section>
             </form>
         </div>   
@@ -136,6 +136,7 @@
             $pagina=basename($_SERVER['SCRIPT_FILENAME']);
             echo $pagina;
         ?>"><img src="./web-root/img/gafas-de-sol.png" height="100px"></a>
+        <a href="./lecturaTabla.php"><img src="./web-root/img/volver.png" height="20px"></a>
     </footer>
 </body>
 </html>

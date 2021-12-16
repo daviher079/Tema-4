@@ -66,7 +66,7 @@
 
                     <section id="botones" style="margin-top:35px;">
                         <input type="submit" name="boton" value="Modificar">
-                        <a href="../lecturaTabla.php"><img src="../web-root/img/volver.png" height="30px"></a>
+                        
                     </section>
                 </form>    
 
@@ -164,6 +164,7 @@
             $pagina=basename($_SERVER['SCRIPT_FILENAME']);
             echo $pagina;
         ?>"><img src="../web-root/img/gafas-de-sol.png" height="100px"></a>
+        <a href="../lecturaTabla.php"><img src="../web-root/img/volver.png" height="20px"></a>
     </footer>
 </body>
 </html>

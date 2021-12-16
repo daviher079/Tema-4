@@ -76,7 +76,7 @@
         <a href="./verCodigo.php?ficheroPHP=<?php
             $pagina=basename($_SERVER['SCRIPT_FILENAME']);
             echo $pagina;
-        ?>"><img src="./web-root/img/gafas-de-sol.png" height="100px"></a>
+        ?>"><img src="./web-root/img/gafas-de-sol.png" height="100px"><a href="../../index.html"><img src="./web-root/img/volver.png" height="20px"></a></a>
     </footer>
 </body>
 </html>
