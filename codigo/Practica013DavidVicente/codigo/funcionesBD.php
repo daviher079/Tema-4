@@ -5,17 +5,14 @@ require_once("./segura/conexionBD.php");
 
 
 
-function dsn()
-{
-    return "mysql:host=".IP.";dbname=".BBDD;
-}
+
 
 function crearBD()
 {
 
     try
     {
-        @$con=new PDO(dsn(), USER, PASS);
+        $con=new PDO("mysql:host=".IP, USER, PASS);
         $con->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         $commands = file_get_contents("./segura/script.sql");
         $con->exec($commands);
@@ -59,7 +56,7 @@ function compruebaErrores()
     
     try
     {
-        @$con=new PDO(dsn(), USER, PASS);
+        $con=new PDO("mysql:host=".IP.";dbname=".BBDD, USER, PASS);
         $con->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
     }
