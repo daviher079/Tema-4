@@ -34,7 +34,7 @@
 
                 try
                 {
-                    @$con=new PDO(dsn(), USER, PASS);
+                    $con=new PDO("mysql:host=".IP.";dbname=".BBDD, USER, PASS);
                     $con->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
                     $preparada=$con->prepare("insert into DATOSCLUB values(ID,?,?,?,?)"); 

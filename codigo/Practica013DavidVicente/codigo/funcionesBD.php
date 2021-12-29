@@ -4,9 +4,6 @@
 require_once("./segura/conexionBD.php");
 
 
-
-
-
 function crearBD()
 {
 
@@ -97,7 +94,7 @@ function lectura()
 {
     try
     {
-        @$con=new PDO(dsn(), USER, PASS);
+        $con=new PDO("mysql:host=".IP.";dbname=".BBDD, USER, PASS);
         $con->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
         $sql="select * from DATOSCLUB;";
@@ -169,7 +166,7 @@ function filtrado($cadena)
 {
     try
     {
-        @$con=new PDO(dsn(), USER, PASS);
+        $con=new PDO("mysql:host=".IP.";dbname=".BBDD, USER, PASS);
         $con->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         
         $preparado=$con->prepare("select * from DATOSCLUB where NOMBRE LIKE :nombre");
