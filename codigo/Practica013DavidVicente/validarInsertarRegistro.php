@@ -50,7 +50,7 @@
                 {
                     $con->rollBack();
                     $numError = $e->getCode();
-            
+                    //42S02 ERROR MYSQL
                     // Si no existe la tabla... (nº error = 1146)
                     if($numError == 1146)
                     {
